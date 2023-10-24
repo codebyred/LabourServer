@@ -1,11 +1,9 @@
 import express from "express"
+import loginController from "../../Controllers/loginController.js";
+
 
 const router = express.Router();
 
-router.post("/",(req, res)=>{
-
-    res.json({success:"1"});
-
-});
+router.post("/",loginController);
 
 export default router;

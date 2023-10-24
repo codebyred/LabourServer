@@ -1,7 +1,5 @@
 import mysql from 'mysql2/promise';
-import * as dotenv from "dotenv";
 
-dotenv.config({path:'./.env'});
 
 async function ConnectToDatabase(){
 
