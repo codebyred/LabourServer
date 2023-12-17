@@ -1,10 +1,10 @@
 import express from "express";
-import workers from "./workers/index.js"
-import users from "./users/index.js"
+import categoryRoute from "./category.route.js"
+import workerRoute from "./worker.route.js"
 
 const router = express.Router();
 
-router.use("/users",users);
-router.use("/workers",workers);
+router.use("/worker",workerRoute);
+router.use("/worker-categories",categoryRoute);
 
 export default router;
