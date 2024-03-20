@@ -28,5 +28,20 @@ export const getWorker = async (req,res)=>{
 
     res.json(worker);
 
+}
+
+export const postWorker = async (req, res)=>{
+
+    try{
+        const worker = req.body.json();
+
+        await Worker.create(worker);
+
+        res.json({msg: "worker added"});
+
+    }catch(e){
+        res.json({msg: "Worker can not be added"});
+    }
+
 
 }
