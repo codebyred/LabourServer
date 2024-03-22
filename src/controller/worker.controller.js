@@ -1,4 +1,4 @@
-import {Worker} from "../models/worker.model.js"
+import {Worker} from "../model/worker.model.js"
 
 export const getWorkers = async (req,res)=>{
 
@@ -27,14 +27,14 @@ export const getWorkers = async (req,res)=>{
 
 export const getWorker = async (req,res)=>{
 
-    const {email} = req.params;
+    const {id} = req.params;
 
 
     try{
 
         const worker = await Worker.findAll({
             where:{
-                email:email
+                id
             }
             
         });

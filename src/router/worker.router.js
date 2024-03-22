@@ -1,10 +1,10 @@
 import express from "express"
-import {getWorkers, getWorker, postWorker, updateWorker, deleteWorker} from "../Controllers/worker.controller.js";
+import {getWorkers, getWorker, postWorker, updateWorker, deleteWorker} from "../controller/worker.controller.js";
 
 const router = express.Router();
 
 router.get("/", getWorkers);
-router.get("/:email", getWorker);
+router.get("/:id", getWorker);
 
 router.post("/", postWorker);
 
