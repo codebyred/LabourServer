@@ -5,6 +5,6 @@ import workerRoute from "./worker.route.js"
 const router = express.Router();
 
 router.use("/worker",workerRoute);
-router.use("/worker-categories",categoryRoute);
+router.use("/worker/category",categoryRoute);
 
 export default router;

@@ -126,10 +126,7 @@ export const deleteWorker = async (req, res)=>{
         return res.json({success:1 , msg: "Woker deleted"});
 
     }catch(e){
-        console.log(e);
         return res.json({success:0, msg: "Can not delete worker"});
     }
-
-
 
 }
