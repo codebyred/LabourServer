@@ -25,11 +25,6 @@ export const Worker = sequelize.define("Worker",{
         type: DataTypes.STRING
 
     },
-    password:{
-
-        type: DataTypes.STRING
-
-    },
     category_id:{
 
         type: DataTypes.INTEGER,

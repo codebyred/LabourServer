@@ -55,15 +55,14 @@ export const postWorker = async (req, res)=>{
 
     try{
 
-        const {id, firstName, lastName, email, password, category_id} = await req.body;
+        const {id, firstName, lastName, email, category_id} = await req.body;
 
         const worker = await Worker.build({
-            id: id, 
-            firstName: firstName, 
-            lastName: lastName, 
-            email: email, 
-            password: password, 
-            category_id: category_id
+            id, 
+            firstName, 
+            lastName, 
+            email, 
+            category_id
         });
 
         await worker.save();

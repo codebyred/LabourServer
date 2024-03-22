@@ -64,15 +64,13 @@ export const updateCategory = async (req, res)=>{
 
     const {id} = req.params;
 
-    const {firstName, lastName, email, category_id} = req.body;
+    const {name, description} = req.body;
 
     try{
 
         await Category.update({
-            firstName,
-            lastName,
-            email,
-            category_id
+            name,
+            description
         },{
             where:{
                 id
