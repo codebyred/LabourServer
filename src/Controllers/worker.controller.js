@@ -4,14 +4,24 @@ export const getWorkers = async (req,res)=>{
 
     const {category} = req.query;
 
-    const workers = category?await Worker.findAll({
-        where:{
-            category_id:category
-        }
-        
-    }): await Worker.findAll();
+    try{
 
-    res.json(workers);
+        const workers = category?await Worker.findAll({
+            where:{
+                category_id:category
+            }
+            
+        }): await Worker.findAll();
+    
+        return res.json(workers);
+
+    }catch(e){
+
+        return res.json({msg: "Can not retrieve list of workers"});
+
+    }
+
+
 
 }
 
@@ -19,14 +29,25 @@ export const getWorker = async (req,res)=>{
 
     const {email} = req.params;
 
-    const worker = await Worker.findAll({
-        where:{
-            email:email
-        }
-        
-    });
 
-    res.json(worker);
+    try{
+
+        const worker = await Worker.findAll({
+            where:{
+                email:email
+            }
+            
+        });
+    
+        return res.json(worker);
+
+    }catch(e){
+
+        return res.json({msg: "Can not find worker"});
+
+
+    }
+
 
 }
 
@@ -58,11 +79,37 @@ export const postWorker = async (req, res)=>{
 
 }
 
+export const updateWorker = async (req, res)=>{
+
+    const {id} = req.params;
+    const {firstName, lastName, email, category_id} = req.body;
+
+    try{
+
+        await Worker.update({
+            firstName,
+            lastName,
+            email,
+            category_id
+        },{
+            where:{
+                id
+            }
+        })
+
+        return res.json({success:1, msg: "Worker updated successfully"})
+
+    }catch(e){
+
+        return res.json({success:0, msg: "Can not update worker"})
+        
+    }
+
+}
+
 export const deleteWorker = async (req, res)=>{
 
     const {id} = req.params;
-
-    console.log(id);
 
     try{
 
