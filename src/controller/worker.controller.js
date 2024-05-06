@@ -55,14 +55,15 @@ export const postWorker = async (req, res)=>{
 
     try{
 
-        const {id, firstName, lastName, email, category_id} = await req.body;
+        const {firstName, lastName, location, job, charge} = req.body;
 
         const worker = await Worker.build({
-            id, 
+            id: Math.floor(Math.random() * 1000000), 
             firstName, 
             lastName, 
-            email, 
-            category_id
+            location,
+            job,
+            charge
         });
 
         await worker.save();
@@ -81,15 +82,16 @@ export const postWorker = async (req, res)=>{
 export const updateWorker = async (req, res)=>{
 
     const {id} = req.params;
-    const {firstName, lastName, email, category_id} = req.body;
+    const {firstName, lastName, location, job, charge} = req.body;
 
     try{
 
         await Worker.update({
             firstName,
             lastName,
-            email,
-            category_id
+            location,
+            job,
+            charge
         },{
             where:{
                 id

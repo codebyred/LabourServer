@@ -1,6 +1,6 @@
 import {sequelize} from "../Config/db.config.js"
 import { DataTypes } from "sequelize";
-import { Category } from "./category.model.js";
+
 
 export const Worker = sequelize.define("Worker",{
 
@@ -10,30 +10,27 @@ export const Worker = sequelize.define("Worker",{
         primaryKey:true
 
     },
-    email:{
-
-        type: DataTypes.STRING
-
-    },
     firstName: {
 
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
 
     },
     lastName:{
 
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
 
     },
-    category_id:{
+    location:{
+        type: DataTypes.STRING,
 
-        type: DataTypes.INTEGER,
-        references:{
-            model: Category,
-            key:'id'
-        }
-
+    },
+    job:{
+        type: DataTypes.STRING
+    },
+    charge:{
+        type: DataTypes.STRING
     }
+
 
 },{
     timestamps:false
